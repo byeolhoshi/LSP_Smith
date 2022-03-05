@@ -146,7 +146,7 @@ public void diff(IntegerSet intSetb) {
 
 };
 //Returns true if the set is empty, false otherwise
-boolean isEmpty() {
+public boolean isEmpty() {
 	if(set.size()==0) {
 		return true; 
 	}

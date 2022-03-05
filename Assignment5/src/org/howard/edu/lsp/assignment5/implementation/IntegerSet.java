@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.stream.Collectors;
 
-public class IntegerSet {
+public class IntegerSet{
 	// Hint: probably best to use an array list.  You will need to do a little research
 	private ArrayList<Integer> set = new ArrayList<Integer>();
 

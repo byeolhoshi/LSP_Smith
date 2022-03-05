@@ -1,10 +1,12 @@
 package org.howard.edu.lsp.assignment5.test;
 import org.howard.edu.lsp.assignment5.implementation.IntegerSet;
+import org.howard.edu.lsp.assignment5.implementation.IntegerSetException;
+
 import java.util.Scanner; 
 
 public class Driver {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IntegerSetException {
 		Scanner lotto_guess = new Scanner(System.in);  
 		IntegerSet lottery_win = new IntegerSet(null); 
 		IntegerSet my_lotto = new IntegerSet(null);  
@@ -26,10 +28,7 @@ public class Driver {
 		if(lottery_win.equals(my_lotto)==false) {
 			int input_len = my_lotto.length(); 
 			System.out.println("Hey! Your numbers don't match the length of the lottery! Yours is " + input_len + "sizes long!"); 
-		}
-		else {
-			continue; 
-	}
+		};
 		lotto_copy1.union(my_lotto);
 		lotto_copy2.intersect(my_lotto);
 		lotto_copy3.diff(my_lotto);
@@ -48,4 +47,5 @@ public class Driver {
 			System.out.println("No lotto today folks!"); 
 		}
 
+}
 }; 

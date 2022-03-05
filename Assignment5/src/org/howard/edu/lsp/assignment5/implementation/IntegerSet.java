@@ -45,15 +45,20 @@ public boolean equals(IntegerSet b) {
 	 * Returns true if the 2 sets are equal, false otherwise;
 	 * Two sets are equal if they contain all of the same values in ANY order.
 	*/
-	int size_b = b.length(); 
-	int size_set = set.size();
-	
-	if(size_set == size_b) {
-		return true; 
+	if(set.size() == b.length()) {
+		ArrayList<Integer> b_copy = new ArrayList<Integer>(null);
+		for(int i=0; i<set.size(); i++) {
+			b_copy.add(b.get(i)); 
+		}
+		
+		if(set.equals(b_copy)){
+			return true; 
+		}
+		else {
+			return false; 
+		}
 	}
-	else {
-		return false; 
-	}
+	return false; 
 }; 
 
 public int get(int index) { 

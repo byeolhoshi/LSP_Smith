@@ -1,5 +1,6 @@
 package org.howard.edu.lsp.assignment5.implementation;
 import java.util.ArrayList;
+import java.util.EmptyStackException;
 
 public class IntegerSet {
 	// Hint: probably best to use an array list.  You will need to do a little research
@@ -25,22 +26,60 @@ public int length() {
 * Two sets are equal if they contain all of the same values in ANY order.
 */
 public boolean equals(IntegerSet b) {
+	int size_b = b.length(); 
+	int size_set = set.size();
 	
+	if(size_set == size_b) {
+		return true; 
+	}
+	else {
+		return false; 
+	}
 }; 
 
 //Returns true if the set contains the value, otherwise false
 public boolean contains(int value) {
+	for (int i : set) {
+		if(i == value) {
+			return true;
+		}
+	}
 	
+	return false; 
 };    
 
 //Returns the largest item in the set; Throws a IntegerSetException if the set is empty 
 public int largest() throws IntegerSetException {
+	int mx = 0; 
 	
+	if(set.size()==0) {
+		throw new EmptyStackException(); 
+	}
+	
+	for(int i = 0; i<set.size(); i++) {
+		if(set.get(i) > mx) {
+			mx = set.get(i); 
+		}
+	}
+	
+	return mx; 
 }; 
 
 //Returns the smallest item in the set; Throws a IntegerSetException if the set is empty
 public int smallest() throws IntegerSetException{
+int mn = Integer.MAX_VALUE; 
 	
+	if(set.size()==0) {
+		throw new EmptyStackException(); 
+	}
+	
+	for(int i = 0; i<set.size(); i++) {
+		if(set.get(i) < mn) {
+			mn = set.get(i); 
+		}
+	}
+	
+	return mn; 
 };
 
 

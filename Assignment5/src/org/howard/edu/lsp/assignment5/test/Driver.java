@@ -44,6 +44,8 @@ public class Driver {
 		lottery_win.clear(); 
 		my_lotto.clear(); 
 		
-		if lottery_win.
+		if (lottery_win.isEmpty()){
+			System.out.println("No lotto today folks!"); 
+		}
 
 }; 

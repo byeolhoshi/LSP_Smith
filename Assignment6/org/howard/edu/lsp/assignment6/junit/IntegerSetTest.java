@@ -61,16 +61,6 @@ public class IntegerSetTest {
 	}
 	
 	@Test
-	public void testLargest() {
-		IntegerSet testSet = new IntegerSet(null); 
-		testSet.add(6); 
-		testSet.add(7);
-		testSet.add(3);
-		testSet.add(19);
-		assertEquals(19, testSet.largest()); 
-	}
-	
-	@Test
 	public void testSmallest() {
 		IntegerSet testSet = new IntegerSet(null); 
 		testSet.add(6); 

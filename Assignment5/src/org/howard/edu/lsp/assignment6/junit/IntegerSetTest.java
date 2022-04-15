@@ -1,3 +1,4 @@
+package org.howard.edu.lsp.assignment6.junit; 
 import static org.junit.Assert.*;
 import org.junit.*;
 import org.howard.edu.lsp.assignment6.integerset.IntegerSet;
@@ -125,7 +126,7 @@ public class IntegerSetTest {
 		testSet.diff(testSet2); 
 		if (testSet.length() == 2) {
 			if (testSet.contains(7)) {
-				assertEquals(testSet.contains(19)); 
+				assertEquals(true, testSet.contains(19)); 
 			}
 		}
 		else {

@@ -1,6 +1,6 @@
 import static org.junit.Assert.*;
 import org.junit.*;
-import org.howard.edu.lsp.assignment6.IntegerSet;
+import org.howard.edu.lsp.assignment6.integerset.IntegerSet;
 public class IntegerSetTest {
 	
 	@Test

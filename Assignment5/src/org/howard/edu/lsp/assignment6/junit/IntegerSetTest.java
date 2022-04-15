@@ -88,7 +88,7 @@ public class IntegerSetTest {
 		testSet.add(7); 
 		testSet2.add(8);
 		testSet2.add(9); 
-		testSet.union(testSet2)
+		testSet.union(testSet2); 
 		if (testSet.contains(8)) {
 			assertEquals(true, testSet.contains(9));
 		}
@@ -106,8 +106,8 @@ public class IntegerSetTest {
 		testSet2.add(6);
 		testSet2.add(19);
 		testSet.intersect(testSet2); 
-		if (testSet.length == 1) { // because the set should only contain the 1 value, 6
-			assertEquals(testSet.contains(6));
+		if (testSet.length() == 1) { // because the set should only contain the 1 value, 6
+			assertEquals(true, testSet.contains(6));
 		}
 		else{
 			fail("Intersection did not properly occur"); 
@@ -123,7 +123,7 @@ public class IntegerSetTest {
 		testSet2.add(6);
 		testSet2.add(19);
 		testSet.diff(testSet2); 
-		if (testSet.length == 2) {
+		if (testSet.length() == 2) {
 			if (testSet.contains(7)) {
 				assertEquals(testSet.contains(19)); 
 			}
@@ -137,7 +137,7 @@ public class IntegerSetTest {
 	public void testString() {
 		IntegerSet testSet = new IntegerSet(null); 
 		testSet.add(6); 
-		newSet = testSet.toString();
+		String newSet = testSet.toString();
 		assertTrue(newSet instanceof String); 
 	}
 

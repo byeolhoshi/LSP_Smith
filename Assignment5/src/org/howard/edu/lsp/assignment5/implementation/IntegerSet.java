@@ -1,6 +1,6 @@
 package org.howard.edu.lsp.assignment5.implementation;
 import java.util.ArrayList;
-import java.util.EmptyStackException;
+import org.howard.edu.lsp.assignment5.implementation.IntegerSetException;
 import java.util.stream.Collectors;
 
 public class IntegerSet{
@@ -82,14 +82,14 @@ public boolean contains(int value) {
 };    
 
 
-public int largest() throws IntegerSetException {
+public int largest(){
 	/**
 	 * Returns the largest item in the set; Throws a IntegerSetException if the set is empty 
 	*/
 	int mx = 0; 
 	
 	if(set.size()==0) {
-		throw new EmptyStackException(); 
+		throw new IntegerSetException; 
 	}
 	
 	for(int i = 0; i<set.size(); i++) {
@@ -102,14 +102,14 @@ public int largest() throws IntegerSetException {
 }; 
 
 //Returns the smallest item in the set; Throws a IntegerSetException if the set is empty
-public int smallest() throws IntegerSetException{
+public int smallest(){
 	/**
 	 * Returns the smallest item in the set; Throws a IntegerSetException if the set is empty 
 	*/
 int mn = Integer.MAX_VALUE; 
 	
 	if(set.size()==0) {
-		throw new EmptyStackException(); 
+		throw new IntegerSetException; 
 	}
 	
 	for(int i = 0; i<set.size(); i++) {

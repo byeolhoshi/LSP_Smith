@@ -2,6 +2,7 @@ package org.howard.edu.lsp.assignment6.junit;
 import static org.junit.Assert.*;
 import org.junit.*;
 import org.howard.edu.lsp.assignment6.integerset.IntegerSet;
+import org.howard.edu.lsp.assignment6.integerset.IntegerSetException;
 public class IntegerSetTest {
 	
 	@Test
@@ -62,7 +63,7 @@ public class IntegerSetTest {
 	}
 	
 	@Test
-	public void testSmallest() {
+	public void testSmallest() throws IntegerSetException {
 		IntegerSet testSet = new IntegerSet(null); 
 		testSet.add(6); 
 		testSet.add(7);
@@ -72,7 +73,7 @@ public class IntegerSetTest {
 	}
 	
 	@Test
-	public void testLargest() {
+	public void testLargest() throws IntegerSetException {
 		IntegerSet testSet = new IntegerSet(null); 
 		testSet.add(6); 
 		testSet.add(7);

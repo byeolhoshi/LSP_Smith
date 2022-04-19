@@ -144,16 +144,9 @@ public void remove(int item) {
 	/**
 	 *Removes an item from the set or does nothing if not there
 	*/
-	boolean flag = false; 
-	for(int e : set) {
-		if (e==item) {
-			flag = true; 
-		}
-	}
-	
-	if (flag==false) {
+	if (set.contains(item)) {
 		set.remove(item); 
-	}; 
+	}
 }; 
 
 
@@ -212,7 +205,7 @@ public boolean isEmpty() {
 //Return String representation of your set
 public String toString() {
 	/**
-	 *Returns string vers of set.	
+	 *Returns string version of set.	
 	*/
 	String str_set = set.stream().map(Object::toString).collect(Collectors.joining(", "));
 	return str_set; 

@@ -56,7 +56,7 @@ public class IntegerSetTest {
 		testSet.add(7); 
 		testSet.add(8); 
 		testSet.remove(6); 
-		assertFalse(testSet.contains(6));
+		assertEquals(false, testSet.contains(6));
 	}
 	@Test
 	public void testIsEmpty() {

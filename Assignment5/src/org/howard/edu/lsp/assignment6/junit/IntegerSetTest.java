@@ -123,8 +123,8 @@ public class IntegerSetTest {
 
 	@Test
 	public void testDiff() {
-		IntegerSet testSet = new IntegerSet(null); 
-		IntegerSet testSet2 = new IntegerSet(null);
+		IntegerSet testSet = new IntegerSet(a); 
+		IntegerSet testSet2 = new IntegerSet(a);
 		testSet.add(6); 
 		testSet.add(7);
 		testSet2.add(6);
@@ -142,7 +142,7 @@ public class IntegerSetTest {
 	
 	@Test
 	public void testString() {
-		IntegerSet testSet = new IntegerSet(null); 
+		IntegerSet testSet = new IntegerSet(a); 
 		testSet.add(6); 
 		String newSet = testSet.toString();
 		assertTrue(newSet instanceof String); 

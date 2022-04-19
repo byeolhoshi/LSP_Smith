@@ -145,7 +145,11 @@ public void remove(int item) {
 	 *Removes an item from the set or does nothing if not there
 	*/
 	if (set.contains(item)) {
-		set.remove(item); 
+		for (int i =0; i<set.size(); i++) {
+			if (set.get(i) == item) {
+				set.remove(i); 
+			}
+		}
 	}
 }; 
 

@@ -18,7 +18,9 @@ public class IntegerSet{
 		*/
 		this.set = intset; 
 		};  
-
+	public ArrayList<Integer> getSet(){
+		return this.set; 
+	}
 //Clears the internal representation of the set
 public void clear() {
 	/**
@@ -45,8 +47,9 @@ public boolean equals(IntegerSet b) {
 	 * Returns true if the 2 sets are equal, false otherwise;
 	 * Two sets are equal if they contain all of the same values in ANY order.
 	*/
+	//ArrayList<Integer> a = new ArrayList<Integer>(); 
 	if(set.size() == b.length()) {
-		ArrayList<Integer> b_copy = new ArrayList<Integer>(null);
+		ArrayList<Integer> b_copy = new ArrayList<Integer>();
 		for(int i=0; i<set.size(); i++) {
 			b_copy.add(b.get(i)); 
 		}
@@ -180,17 +183,11 @@ public void diff(IntegerSet intSetb) {
 	/**
 	 *Modifies set to only contain the differences between them 	
 	*/
-	for(int i=0; i<set.size(); i++) { // [4,1,9,2] [7,2,0,8]
-		if(intSetb.contains(set.get(i))) { // [2] 
-			set.remove(set.get(i)); // [4, 1, 9] 
-			intSetb.remove(set.get(i));
-		}; 
-	} // where set = s1 and intSetb = s2
-	
-	for(int i=0; i<intSetb.length();i++) {
-		set.add(intSetb.get(i)); 
+	for (int item : intSetb.getSet()) {
+        if (this.contains(item)) {
+            this.set.remove(item);
+            }
 	}
-
 };
 
 public boolean isEmpty() {

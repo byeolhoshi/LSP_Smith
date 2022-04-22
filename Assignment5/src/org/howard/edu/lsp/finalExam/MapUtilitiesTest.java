@@ -7,24 +7,50 @@ import org.junit.jupiter.api.*;
 
 class MapUtilitiesTest {
 
-	@BeforeAll
-	void setUp() throws Exception {
-		HashMap<String, String> testMap1 = new HashMap<>();
-		HashMap<String, String> testMap2 = new HashMap<>(); 
-	}
-	
-	@AfterEach
-	void tearDown() {
-		testMap1.clear(); 
-		testMap2.clear();
-	}
 
 	@Test
-	void mapContainsValuesTest() {
-		testMap1.put("TestValue", "1"); 
-		testMap2.put("TestValue", "1");
+	void nullExceptionTest(){
+		// given
+		HashMap<String, String> testMap1 = new HashMap<>();
+		HashMap<String, String> testMap2 = new HashMap<>(null); 
 		
-		assertEquals(false, testMap1.isEmpty()); 
+		// when
+		testMap1.put("TestValue", "1"); 
+		
+		//then
+		assertThrows(NullMapException.class, commonKeyValuePairs(testMap1, testMap2) ); 
+	}
+	
+	@Test
+	void correctCountTest() {
+		//given
+		HashMap<String, String> testMap1 = new HashMap<>();
+		HashMap<String, String> testMap2 = new HashMap<>(); 
+		
+		//when
+		testMap1.put("Test", "1"); 
+		testMap2.put("Test", "1");
+		testMap1.put("Hi", "Hello");
+		testMap2.put("Yes", "No");
+		testMap1.put("Michael", "Jackson");
+		testMap2.put("Hi", "Hello");
+		
+		//then
+		assertEquals(2, commonKeyValuePairs(testMap1, testMap2)); 
+		
+	}
+	
+	@Test
+	void emptyHashTest() {
+		//given
+		HashMap<String, String> testMap1 = new HashMap<>();
+		HashMap<String, String> testMap2 = new HashMap<>(); 
+		
+		//when
+		testMap1.put("TestValue", "1"); 
+		
+		//then
+		assertEquals(0, commonKeyValuePairs(testMap1, testMap2)); 
 	}
 
 }

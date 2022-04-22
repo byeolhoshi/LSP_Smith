@@ -16,7 +16,11 @@ public class MapUtilities {
 			
 			for(Map.Entry<String, String> element : map1.entrySet()) {
 				String k = element.getKey(); 
-				String v = element.getValue(); 
+				String v = element.getValue();
+				
+				if (k == null || v == null) {
+					throw new NullMapException("One or both maps are null!"); 
+				}
 			
 				if(map2.containsKey(k)) {
 					String v2 = map2.get(k); 

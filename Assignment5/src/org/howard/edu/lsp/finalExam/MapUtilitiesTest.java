@@ -16,10 +16,11 @@ class MapUtilitiesTest {
 	void nullExceptionTest() throws NullMapException {
 		// given
 		HashMap<String, String> testMap1 = new HashMap<>();
-		HashMap<String, String> testMap2 = new HashMap<>(null); 
+		HashMap<String, String> testMap2 = new HashMap<>(); 
 		
 		// when
 		testMap1.put("TestValue", "1"); 
+		testMap2.put(null, null); 
 		
 		//then
 		NullMapException thrown = Assertions.assertThrows(NullMapException.class, () -> { MapUtilities.commonKeyValuePairs(testMap1, testMap2); }, "One or both maps are null!" );
@@ -79,7 +80,7 @@ class MapUtilitiesTest {
 	}
 	
 	@Test
-	void differentKeyValuesTest() throws NullMapException {
+	void differentValuesTest() throws NullMapException {
 		//given
 		HashMap<String, String> testMap1 = new HashMap<>();
 		HashMap<String, String> testMap2 = new HashMap<>(); 

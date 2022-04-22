@@ -9,6 +9,10 @@ public class MapUtilities {
 			throw new NullMapException(); 
 		}
 		
+		if(map1.isEmpty() || map2.isEmpty()) {
+			return 0; 
+		}
+		
 		for(Map.Entry<String, String> element : map1.entrySet()) {
 			String k = element.getKey(); 
 			String v = element.getValue(); 

@@ -48,7 +48,7 @@ class MapUtilitiesTest {
 	}
 	
 	@Test
-	void emptyHashTest() throws NullMapException {
+	void oneEmptyHashTest() throws NullMapException {
 		//given
 		HashMap<String, String> testMap1 = new HashMap<>();
 		HashMap<String, String> testMap2 = new HashMap<>(); 
@@ -96,6 +96,37 @@ class MapUtilitiesTest {
 		//then
 		assertEquals(1, MapUtilities.commonKeyValuePairs(testMap1, testMap2)); 
 		
+	}
+	
+	@Test
+	void differentKeysTest() throws NullMapException {
+		//given
+		HashMap<String, String> testMap1 = new HashMap<>();
+		HashMap<String, String> testMap2 = new HashMap<>(); 
+		
+		//when
+		testMap1.put("Test", "1"); 
+		testMap2.put("Different", "1");
+		testMap1.put("Hi", "Hello");
+		testMap2.put("Yes", "No");
+		testMap1.put("Michael", "Jackson");
+		testMap2.put("Hi", "Hello");
+		
+		//then
+		assertEquals(1, MapUtilities.commonKeyValuePairs(testMap1, testMap2)); 
+		
+	}
+	
+	@Test
+	void bothEmptyHashTest() throws NullMapException {
+		//given
+		HashMap<String, String> testMap1 = new HashMap<>(); // empty
+		HashMap<String, String> testMap2 = new HashMap<>(); //empty 
+		
+		//when no values added to hashes
+		
+		//then
+		assertEquals(0, MapUtilities.commonKeyValuePairs(testMap1, testMap2)); 
 	}
 
 }

@@ -7,9 +7,13 @@ import org.junit.jupiter.api.*;
 
 class MapUtilitiesTest {
 
-
+	/*@BeforeAll
+	public static void beforeAll() {
+		MapUtilities.commonKeyValuePairs(HashMap<String, String>, HashMap<String, String>); 
+	} */ 
+	
 	@Test
-	void nullExceptionTest(){
+	void nullExceptionTest() throws NullMapException {
 		// given
 		HashMap<String, String> testMap1 = new HashMap<>();
 		HashMap<String, String> testMap2 = new HashMap<>(null); 
@@ -18,11 +22,11 @@ class MapUtilitiesTest {
 		testMap1.put("TestValue", "1"); 
 		
 		//then
-		assertThrows(NullMapException.class, commonKeyValuePairs(testMap1, testMap2) ); 
+		NullMapException exception = assertThrows(NullMapException.class, () -> { MapUtilities.commonKeyValuePairs(testMap1, testMap2); } ); 
 	}
 	
 	@Test
-	void correctCountTest() {
+	void correctCountTest() throws NullMapException {
 		//given
 		HashMap<String, String> testMap1 = new HashMap<>();
 		HashMap<String, String> testMap2 = new HashMap<>(); 
@@ -36,12 +40,12 @@ class MapUtilitiesTest {
 		testMap2.put("Hi", "Hello");
 		
 		//then
-		assertEquals(2, commonKeyValuePairs(testMap1, testMap2)); 
+		assertEquals(2, MapUtilities.commonKeyValuePairs(testMap1, testMap2)); 
 		
 	}
 	
 	@Test
-	void emptyHashTest() {
+	void emptyHashTest() throws NullMapException {
 		//given
 		HashMap<String, String> testMap1 = new HashMap<>();
 		HashMap<String, String> testMap2 = new HashMap<>(); 
@@ -50,7 +54,7 @@ class MapUtilitiesTest {
 		testMap1.put("TestValue", "1"); 
 		
 		//then
-		assertEquals(0, commonKeyValuePairs(testMap1, testMap2)); 
+		assertEquals(0, MapUtilities.commonKeyValuePairs(testMap1, testMap2)); 
 	}
 
 }

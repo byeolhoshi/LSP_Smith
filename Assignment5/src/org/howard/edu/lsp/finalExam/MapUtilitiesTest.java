@@ -22,7 +22,9 @@ class MapUtilitiesTest {
 		testMap1.put("TestValue", "1"); 
 		
 		//then
-		NullMapException exception = assertThrows(NullMapException.class, () -> { MapUtilities.commonKeyValuePairs(testMap1, testMap2); } ); 
+		NullMapException thrown = Assertions.assertThrows(NullMapException.class, () -> { MapUtilities.commonKeyValuePairs(testMap1, testMap2); } );
+		
+		Assertions.assertEquals("One or both maps are null!", thrown.getMessage());
 	}
 	
 	@Test

@@ -128,5 +128,25 @@ class MapUtilitiesTest {
 		//then
 		assertEquals(0, MapUtilities.commonKeyValuePairs(testMap1, testMap2)); 
 	}
+	
+	@Test
+	void unequalHashLengthTest() throws NullMapException {
+		//given
+		HashMap<String, String> testMap1 = new HashMap<>();
+		HashMap<String, String> testMap2 = new HashMap<>(); 
+		
+		//when
+		testMap1.put("TestValue", "1"); 
+		testMap1.put("Pokemon", "go");
+		testMap1.put("Another", "Test");
+		testMap1.put("String", "Value");
+		testMap1.put("Random", "Input"); // testMap1 is longer than testMap2
+		
+		testMap2.put("Another", "Value");
+		testMap2.put("TestValue", "1"); 
+		
+		//then
+		assertEquals(1, MapUtilities.commonKeyValuePairs(testMap1, testMap2)); 
+	}
 
 }
